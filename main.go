@@ -12,7 +12,7 @@ func main() {
 	//Expecting valid address host:port format
 	arguments := os.Args
 	if len(arguments) == 1 {
-		fmt.Println("Please provide a host:port string")
+		fmt.Println("No port number specified... Exiting.....")
 		return
 	}
 
