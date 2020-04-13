@@ -14,10 +14,6 @@ Then run with :
 ```
 go run main.go "Address:Port" 
 ```
-or 
-```
-go run main.go ":Port" (localhost)
-```
 
 Doing this in tandem with my udp listen server will open a netcat-like environment for sending messages which the server will display (on its end) and log.
 
