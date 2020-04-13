@@ -7,7 +7,7 @@ Simple UDP connection in Go
 You can "git clone" my repo with :
 
 ```
-git clone https://github.com/TRedzepagic/tcpclient.git
+git clone https://github.com/TRedzepagic/udpclient.git
 ```
 Then run with :
 
