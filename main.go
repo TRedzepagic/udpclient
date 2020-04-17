@@ -5,6 +5,7 @@ import (
 	"fmt"
 	"net"
 	"os"
+	"time"
 
 	"github.com/TRedzepagic/compositelogger/logs"
 )
@@ -22,7 +23,6 @@ func Read(connection *net.UDPConn, ReplyLog *logs.CompositeLog, TimeLog *logs.Co
 			TimeLog.Info("My address : " + connection.LocalAddr().String() + " " + string(buffer[0:n]))
 		} else {
 			ReplyLog.Info(string(buffer[0:n]))
-			return
 		}
 	}
 }
@@ -56,7 +56,9 @@ func main() {
 	fmt.Printf("Dialed address : %s\n", connection.RemoteAddr().String())
 	defer connection.Close()
 
+	go Read(connection, ReplyLog, TimeLog)
 	for {
+		time.Sleep(25 * time.Millisecond)
 		reader := bufio.NewReader(os.Stdin)
 		fmt.Print("Text to send : ")
 		text, _ := reader.ReadString('\n')
@@ -67,7 +69,6 @@ func main() {
 			ErrInfoLog.Error(err)
 			return
 		}
-		go Read(connection, ReplyLog, TimeLog)
 
 	}
 }
