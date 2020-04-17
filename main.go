@@ -18,7 +18,7 @@ func Read(connection *net.UDPConn, ReplyLog *logs.CompositeLog, TimeLog *logs.Co
 			ReplyLog.Error(err)
 			return
 		}
-		if string(buffer[0:n]) == "Timer Tick! : 5 seconds have elapsed" {
+		if string(buffer[0:n]) == "Timer Tick! : 10 seconds have elapsed" {
 			TimeLog.Info(string(buffer[0:n]))
 		} else {
 			ReplyLog.Info(string(buffer[0:n]))
