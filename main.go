@@ -19,7 +19,7 @@ func Read(connection *net.UDPConn, ReplyLog *logs.CompositeLog, TimeLog *logs.Co
 			return
 		}
 		if string(buffer[0:n]) == "Timer Tick! : 10 seconds have elapsed" {
-			TimeLog.Info(string(buffer[0:n]))
+			TimeLog.Info("My address : " + connection.LocalAddr().String() + " " + string(buffer[0:n]))
 		} else {
 			ReplyLog.Info(string(buffer[0:n]))
 			return
